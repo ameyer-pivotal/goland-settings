@@ -21,4 +21,12 @@
       <option name="GO" value="true" />
     </context>
   </template>
+  <template name="spec" value="import (&#10;&#9;&quot;testing&quot;&#10;&#10;&#9;. &quot;github.com/onsi/gomega&quot;&#10;&#9;&quot;github.com/sclevine/spec&quot;&#10;)&#10;&#10;func Test$TESTNAME$(t *testing.T) {&#10;&#9;spec.Run(t, &quot;Test Describe Image&quot;, test$TESTNAME$)&#10;}&#10;&#10;func test$TESTNAME$(t *testing.T, when spec.G, it spec.S) {&#10;&#9;var (&#10;&#9;&#9;Expect func(interface{}, ...interface{}) GomegaAssertion&#10;&#9;)&#10;&#9;&#10;&#9;it.Before(func() {&#10;&#9;&#9;Expect = NewGomegaWithT(t).Expect&#10;&#9;})&#10;&#10;&#9;when(&quot;$WHEN$&quot;, func() {&#10;&#9;&#9;it(&quot;$IT$&quot;, func() {&#10;            $END$&#10;&#9;&#9;})&#10;&#9;})&#10;}&#10;" description="Spec test live template" toReformat="true" toShortenFQNames="true">
+    <variable name="TESTNAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="WHEN" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="IT" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="GO_FILE" value="true" />
+    </context>
+  </template>
 </templateSet>
